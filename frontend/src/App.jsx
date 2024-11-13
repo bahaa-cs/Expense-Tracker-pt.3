@@ -31,18 +31,60 @@ const App = () => {
             <label htmlFor="id">Transaction ID (for edit action)</label>
             <input type="text" id="id" disabled />
             <label htmlFor="price">Price: </label>
-            <input type="text" id="price" placeholder="0" required />
+            <input 
+            type="text"
+            id="price"
+            placeholder="0"
+            required
+            onChange={(e) => {
+              setTransactionForm({
+                ...transactionForm,
+                price: e.target.value,
+              });
+            }}
+            />
             <label htmlFor="type">Type: </label>
-            <select id="type" name="type" required>
+            <select 
+            id="type" 
+            name="type" 
+            required
+            onChange={(e) => {
+              setTransactionForm({
+                ...transactionForm,
+                type: e.target.value,
+              });
+            }}
+            >
               <option value="income" selected>
                 income
               </option>
               <option value="expense">expense</option>
             </select>
             <label htmlFor="date">Date: </label>
-            <input type="date" id="date" required />
+            <input 
+            type="date" 
+            id="date" 
+            required 
+            onChange={(e) => {
+              setTransactionForm({
+                ...transactionForm,
+                date: e.target.value,
+              });
+            }}
+            />
             <label htmlFor="notes">Notes: </label>
-            <input type="text" id="notes" placeholder="notes" required />
+            <input 
+            type="text" 
+            id="notes" 
+            placeholder="notes" 
+            required 
+            onChange={(e) => {
+              setTransactionForm({
+                ...transactionForm,
+                notes: e.target.value,
+              });
+            }}
+            />
             <button type="submit" className="flex center create-transaction filled-btn green-bg white-txt">
               Save Transaction
             </button>
