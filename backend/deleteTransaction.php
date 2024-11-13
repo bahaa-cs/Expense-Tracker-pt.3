@@ -9,11 +9,19 @@ $query = $connection->prepare("DELETE from transactions WHERE users_id = ? and i
 
 $query->bind_param("ii",$users_id,$id);
 
+$response = [];
+
+$response = [];
+
 if ($query) {
-    if ($query->execute())
-        echo "Deleted successfully";
-    else
-        echo "Error executing delete query: " . $query->error;
-} else
-    echo "Error preparing delete query: " . $connect->error;
+    if ($query->execute()) {
+        $response = ["message" => "Deleted successfully"];
+    } else {
+        $response = ["message" => "Error executing delete query", "error" => $query->error];
+    }
+} else {
+    $response = ["message" => "Error preparing delete query", "error" => $connect->error];
+}
+
+echo json_encode($response);
 

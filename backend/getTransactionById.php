@@ -5,18 +5,31 @@ include ("connection.php");
 
 $id = $_POST['id'];
 
-if($id != null){
+$response = [];
+
+if ($id != null) {
     $query = $connection->prepare("SELECT * FROM transactions WHERE id = ?");
-    $query->bind_param("i",$id);
-    $query->execute();
-
-    $result = $query->get_result();
-
-    if($result->num_rows > 0){
-        $resultObject = $result->fetch_assoc();
-
-        $json_result = json_encode($resultObject );
-        echo $json_result;
+    
+    if ($query) {
+        $query->bind_param("i", $id);
+        
+        if ($query->execute()) {
+            $result = $query->get_result();
+            
+            if ($result->num_rows > 0) {
+                $response = $result->fetch_assoc();
+            } else {
+                $response = ["message" => "No ID"];
+            }
+        } else {
+            $response = ["message" => "Error executing query", "error" => $query->error];
+        }
+    } else {
+        $response = ["message" => "Error preparing query", "error" => $connection->error];
     }
-
+} else {
+    $response = ["message" => "ID null"];
 }
+
+echo json_encode($response);
+

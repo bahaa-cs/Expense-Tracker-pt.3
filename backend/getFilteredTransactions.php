@@ -50,12 +50,12 @@ $query->bind_param($types, ...$params);
 $query->execute();
 $result = $query->get_result();
 
+$transactions_array = [];
+
 if ($result->num_rows > 0) {
-    $transactions_array = [];
     while ($resultObject = $result->fetch_assoc()) {
         $transactions_array[] = $resultObject;
     }
-    echo json_encode($transactions_array);
-} else {
-    echo json_encode([]);
 }
+
+echo json_encode($transactions_array);

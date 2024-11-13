@@ -19,7 +19,7 @@ if ($users_id !== null) {
 
         echo json_encode($transactions_array);
     } else {
-        echo json_encode([]);
+        echo json_encode(["message"=>"no records returned"]);
     }
 } else {
     echo json_encode(

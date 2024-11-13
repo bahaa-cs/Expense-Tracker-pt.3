@@ -17,10 +17,10 @@ $query->bind_param("isssii",$price,$type,$date,$notes,$users_id,$id);
 if($query){
 
     if($query->execute())
-        echo "Updated Successfully!";
+        echo json_encode(["message" => "Updated Successfully!"]);
     else
-        echo "Error executing update query: ".$query.error;
+        echo json_encode(["message" => "Error executing update query: " . $query->error]);
 
 }
 else
-echo "Error preparing update query: ".$query->error ;
+echo json_encode(["message" => "Error preparing update query: " . $query->error]);

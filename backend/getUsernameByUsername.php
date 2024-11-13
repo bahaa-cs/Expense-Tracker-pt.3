@@ -18,3 +18,6 @@ if($username != null){
     $json_result = json_encode($resultObject);
     echo $json_result;
     }
+else{
+    echo json_encode(["error"=>"username is null"]);
+}
