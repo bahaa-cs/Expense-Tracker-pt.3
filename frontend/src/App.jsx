@@ -55,7 +55,7 @@ const App = () => {
               });
             }}
             >
-              <option value="income" selected>
+              <option value="income">
                 income
               </option>
               <option value="expense">expense</option>
@@ -85,7 +85,26 @@ const App = () => {
               });
             }}
             />
-            <button type="submit" className="flex center create-transaction filled-btn green-bg white-txt">
+            <button type="submit" className="flex center create-transaction filled-btn green-bg white-txt"
+              onClick={() => {
+
+                const data = new FormData();
+
+                data.append("price", transactionForm.price);
+                data.append("type", transactionForm.type);
+                data.append("date", transactionForm.date);
+                data.append("notes", transactionForm.notes);
+
+                axios
+                  .post("http://localhost:8080/expense-tracker-pt3/backend/insertTransaction.php", data)
+                  .then(() => {
+                    console.log("Successfully Inserted")
+                  })
+                  .catch((error) => {
+                    console.log(error.response.data.status);
+                  });
+              }}
+            >
               Save Transaction
             </button>
           </form>
