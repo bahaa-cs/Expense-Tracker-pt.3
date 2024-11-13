@@ -2,11 +2,9 @@
 
 include("connection.php");
 
-$users_id = $_POST["users_id"];
 
-if ($users_id !== null) {
-    $query = $connection->prepare("SELECT * FROM transactions WHERE users_id = ?");
-    $query->bind_param("s", $users_id);
+    $query = $connection->prepare("SELECT * FROM transactions");
+    
     $query->execute();
     
     $result = $query->get_result();
@@ -21,8 +19,3 @@ if ($users_id !== null) {
     } else {
         echo json_encode(["message"=>"no records returned"]);
     }
-} else {
-    echo json_encode(
-        ["error" => "Missing user ID"]
-    );
-}
