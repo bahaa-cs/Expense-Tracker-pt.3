@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState,useEffect } from 'react';
 
-const Body = () => {
+const Form = () => {
     const [transactionForm, setTransactionForm] = useState({
       price: "",
       type: "",
@@ -102,34 +102,7 @@ const Body = () => {
             </button>
           </form>
         </div>
-
-        <div className="flex row filter-container primary-bg">
-          <div className="flex center filter-title green-txt">Filter</div>
-
-          <div className="flex row filter-section">
-            <input
-              type="number"
-              id="min-price-filter"
-              placeholder="filter by min price"
-            />
-            <input
-              type="number"
-              id="max-price-filter"
-              placeholder="filter by max price"
-            />
-            <select id="type-filter">
-              <option value="">all types</option>
-              <option value="income">income</option>
-              <option value="expense">expense</option>
-            </select>
-            <input type="date" id="date-filter" />
-            <input type="text" id="notes-filter" placeholder="filter by notes" />
-            <button id="filter" className="white-txt green-bg filled-btn">
-              filter
-            </button>
-          </div>
-        </div>
-
+              
         <section className="flex column transaction-info primary-bg" id="transaction-info">
           <div className="flex row Titles green-txt">
             <div className="price-title green-txt">Price</div>
@@ -146,4 +119,4 @@ const Body = () => {
     );
 }
 
-export default Body;
+export default Form;

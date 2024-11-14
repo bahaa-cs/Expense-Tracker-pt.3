@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './components/NavBar';
-import Body from  './components/Body';
+import Form from  './components/Form';
+import Filter from  './components/Filter';
 
 import './App.css';
 import './styles/base.css';
@@ -13,7 +14,8 @@ const App = () => {
     return (
       <div>
         <NavBar />
-        <Body />
+        <Form />
+        <Filter />
       </div>
     );
 }
