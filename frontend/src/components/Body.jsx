@@ -1,13 +1,7 @@
-import React, { useState,useEffect } from 'react';
-import './App.css';
-import './styles/base.css';
-import './styles/colors.css';
-import './styles/utilities.css';
-import './styles/home.css';
 import axios from 'axios';
+import React, { useState,useEffect } from 'react';
 
-
-const App = () => {
+const Body = () => {
     const [transactionForm, setTransactionForm] = useState({
       price: "",
       type: "",
@@ -152,4 +146,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default Body;
