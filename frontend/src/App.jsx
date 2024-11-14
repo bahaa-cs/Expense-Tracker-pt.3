@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from './components/NavBar';
 import Form from  './components/Form';
 import Filter from  './components/Filter';
+import Details from  './components/Details';
 
 import './App.css';
 import './styles/base.css';
@@ -16,6 +17,7 @@ const App = () => {
         <NavBar />
         <Form />
         <Filter />
+        <Details />
       </div>
     );
 }
