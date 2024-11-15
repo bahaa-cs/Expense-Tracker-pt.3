@@ -6,7 +6,7 @@ $price = $_POST['price'];
 $type = $_POST['type'];
 $date = $_POST['date'];
 $notes = $_POST['notes'];
-$users_id = $_POST['users_id'];
+$users_id = $_POST['users_id'] ?? 1;
 
 
 
