@@ -23,9 +23,19 @@ const Details = () => {
         <div className="type">{transaction.type}</div>
         <div className="date">{transaction.date}</div>
         <div className="notes">{transaction.notes}</div>    
-        <div class="flex row action-btns black-txt">
-                <button class="edit-btn action-btn black-txt">edit</button>
-                <button class="delete-btn action-btn red-bg white-txt">delete</button>
+        <div className="flex row action-btns black-txt">
+                <button className="edit-btn action-btn black-txt">edit</button>
+                <button 
+                className="delete-btn action-btn red-bg white-txt"
+                onClick={async()=>{
+                  const data = new FormData()
+                  data.append("users_id",1)
+                  data.append("id",transaction.id)
+                  await axios.post("http://localhost:8080/expense-tracker-pt3/backend/deleteTransaction.php",
+                    data
+                  )
+                }}
+                >delete</button>
             </div>
       </div>
     
@@ -42,7 +52,7 @@ const Details = () => {
         <div className="actions-title">Actions</div>
       </div>
       
-      <div class="flex column data-info black-txt" id="data-info">
+      <div className="flex column data-info black-txt" id="data-info">
 
       {listTransactions}
 </div>
