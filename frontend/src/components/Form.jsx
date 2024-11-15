@@ -10,12 +10,6 @@ const Form = () => {
     });
     
 
-    axios.get("http://localhost:8080/expense-tracker-pt3/backend/getTransactions.php")
-    .then((res)=>{
-     
-
-    })
-
     return (
       <div>
 
