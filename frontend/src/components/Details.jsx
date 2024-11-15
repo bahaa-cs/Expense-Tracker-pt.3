@@ -11,7 +11,7 @@ const Details = () => {
     };
 
     fetchTransactions();
-  }, [transactions]);
+  }, []);
 
 
   const listTransactions = transactions.map((transaction) => (
@@ -34,9 +34,8 @@ const Details = () => {
                   await axios.post("http://localhost:8080/expense-tracker-pt3/backend/deleteTransaction.php",
                     data
                   )
-                  const root = ReactDOM.createRoot(
-                    document.getElementById('root')
-                  );
+                  setTransactions(transactions.filter((t) => t.id !== transaction.id));
+
                 }}
                 >delete</button>
             </div>
