@@ -17,7 +17,7 @@ const App = () => {
         <NavBar />
         <Form />
         <Filter />
-        {/* <Details /> */}
+        <Details />
       </div>
     );
 }
