@@ -17,8 +17,8 @@ const Details = () => {
   const listTransactions = transactions.map((transaction) => (
 
 
-      <div className="flex row data black-txt" id="data-info">
-        <div key={transaction.id}></div>
+      <div className="flex row data black-txt" key={transaction.id}>
+        
         <div className="price">{transaction.price}</div>
         <div className="type">{transaction.type}</div>
         <div className="date">{transaction.date}</div>
@@ -42,8 +42,10 @@ const Details = () => {
         <div className="actions-title">Actions</div>
       </div>
       
+      <div class="flex column data-info black-txt" id="data-info">
 
       {listTransactions}
+</div>
     </section>
   );
 };
