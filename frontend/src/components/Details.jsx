@@ -36,7 +36,7 @@ const Details = () => {
                     data
                   )
                   setTransactions(transactions.filter((t) => t.id !== transaction.id));
-
+                  window.location.reload() // should do something about it
                 }}
                 >delete</button>
             </div>
