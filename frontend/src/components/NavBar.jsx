@@ -4,6 +4,11 @@ import React,{useEffect,useState} from "react"
 const NavBar = () => {
     const [budget,setBudget] = useState(0)
 
+    useEffect(()=>{
+      
+
+    },[]);
+
     return ( <div>
             <nav className="flex row center nav-bar nav-margin">
           <div className="flex nav-title">Expense Tracker</div>

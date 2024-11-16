@@ -31,9 +31,7 @@ const Form = () => {
             }}
             />
             <label htmlFor="type">Type: </label>
-            <select 
-            id="type" 
-            name="type" 
+            <select  
             required
             onChange={(e) => {
               setTransactionForm({
@@ -42,10 +40,9 @@ const Form = () => {
               });
             }}
             >
-              <option value="income">
-                income
-              </option>
+              <option value="" disabled selected>Select type</option>
               <option value="expense">expense</option>
+              <option value="income">income</option>
             </select>
             <label htmlFor="date">Date: </label>
             <input 
