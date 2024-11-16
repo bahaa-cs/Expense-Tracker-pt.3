@@ -4,7 +4,7 @@ import React, { useState,useEffect } from 'react';
 const Form = () => {
     const [transactionForm, setTransactionForm] = useState({
       price: "",
-      type: "",
+      type: "income",
       date: "",
       notes:""
     });
@@ -40,9 +40,8 @@ const Form = () => {
               });
             }}
             >
-              <option value="" disabled selected>Select type</option>
-              <option value="expense">expense</option>
               <option value="income">income</option>
+              <option value="expense">expense</option>
             </select>
             <label htmlFor="date">Date: </label>
             <input 
@@ -82,7 +81,6 @@ const Form = () => {
                 axios
                   .post("http://localhost:8080/expense-tracker-pt3/backend/insertTransaction.php", data)
                   .then(() => {
-                    console.log("Successfully Inserted")
                   })
                   .catch((error) => {
                     console.log(error.response.data.status);
