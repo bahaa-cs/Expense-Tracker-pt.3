@@ -1,11 +1,19 @@
 import React,{useEffect,useState} from "react"
-
-
+import axios from 'axios';
+import Details from "./Details"
 const NavBar = () => {
-    const [budget,setBudget] = useState(0)
+    const [budget,setBudget] = useState([])
 
     useEffect(()=>{
-      
+      const getBudget = async () => {
+        const response = await axios.get("http://localhost:8080/expense-tracker-pt3/backend/getTotalBudget.php");
+        const result = response.data
+        console.log(result)
+        setBudget(result.budget ? result.budget: 0);
+
+    };
+
+    getBudget();
 
     },[]);
 
