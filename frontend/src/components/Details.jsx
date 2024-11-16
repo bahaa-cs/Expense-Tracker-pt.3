@@ -7,7 +7,6 @@ const Details = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
         const response = await axios.get("http://localhost:8080/expense-tracker-pt3/backend/getTransactions.php");
-        console.log(response.data)
         setTransactions(Array.isArray(response.data) ? response.data : []);
 
     };
