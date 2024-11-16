@@ -97,3 +97,8 @@ form{
     height: 90vh;
     gap: 15px;
 }
+
+.empty-list{
+    color: #dc3545;
+    font-weight: bold;
+}

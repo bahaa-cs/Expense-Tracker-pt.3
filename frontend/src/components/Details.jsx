@@ -7,14 +7,16 @@ const Details = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
         const response = await axios.get("http://localhost:8080/expense-tracker-pt3/backend/getTransactions.php");
-        setTransactions(response.data); 
+        console.log(response.data)
+        setTransactions(Array.isArray(response.data) ? response.data : []);
+
     };
 
     fetchTransactions();
   }, []);
 
 
-  const listTransactions = transactions.map((transaction) => (
+  const listTransactions = transactions.length>0 ? transactions.map((transaction) => (
 
 
       <div className="flex row data black-txt" key={transaction.id}>
@@ -41,7 +43,7 @@ const Details = () => {
             </div>
       </div>
     
-  ));
+  )) : <div className='flex center empty-list'>No Transactions</div>
 
   return (
     <section className="flex column transaction-info primary-bg" id="transaction-info">
